@@ -13,7 +13,8 @@ body {
   font-family: "Poppins", sans-serif;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
@@ -21,8 +22,6 @@ header {
 }
 
 .search-container {
-  display: flex;
-  justify-content: center;
   margin: 1rem;
   padding: 0.7rem;
   border-radius: 2rem;
@@ -44,4 +43,18 @@ input[type="search"] {
   border: none;
   border-bottom: 1px solid black;
   background-color: transparent;
+}
+
+
+
+
+.main-container{
+  display: flex;
+
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
