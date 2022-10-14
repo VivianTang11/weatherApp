@@ -45,11 +45,14 @@ input[type="search"] {
   background-color: transparent;
 }
 
-
-
-
 .main-container{
   display: flex;
+  justify-content: center;
+
+}
+
+
+.current{
 
   background: rgba(255, 255, 255, 0.14);
   border-radius: 16px;
@@ -57,4 +60,18 @@ input[type="search"] {
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+
+  margin: 1rem;
+  padding: 0.7rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
