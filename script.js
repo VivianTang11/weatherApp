@@ -25,8 +25,9 @@ function renderCurrent(data) {
     <img src=http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png /></img>
     <p>${data.weather[0].description}</p>`;
   document.getElementById("details").innerHTML = `
-    <h2>${data.main.temp} C</h2>
-    <p><i class="fa-solid fa-arrow-up"></i> ${data.main.temp_max} C <i class="fa-solid fa-arrow-down"></i> ${data.main.temp_min} C</p>`;
+    <h2 class="main-temp">${data.main.temp} C</h2>
+    <span><i class="fa-solid fa-arrow-up"></i> ${data.main.temp_max} C </span>
+    <span><i class="fa-solid fa-arrow-down"></i> ${data.main.temp_min} C</span>`;
 }
 
 window.addEventListener("load", search());
