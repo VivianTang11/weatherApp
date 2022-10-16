@@ -1,6 +1,7 @@
 const apiKey = "2a58ec4bbfa26bfe6e0948b24c90bb76";
 const url = `https://api.openweathermap.org/data/2.5`;
 
+
 function search() {
   document.getElementById("search").addEventListener("keyup", (e) => {
     if (e.key == "Enter") {
@@ -44,6 +45,11 @@ function renderCurrent(data) {
 
   const mainWrapper = document.getElementById("main-container");
   mainWrapper.append(cityBox, iconBox, detailsBox);
+
+  document.getElementById("search").value = ''
+
 }
 
-window.addEventListener("load", search());
+window.addEventListener("load", () => {
+  search()
+});
