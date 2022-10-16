@@ -18,9 +18,8 @@ async function fetchCurrent(city) {
 }
 
 function renderCurrent(data) {
-  const mainContainer = document.createElement("div")
-  mainContainer = document.setAttribute('id', 'main-container')
-  // const mainContainer = document.getElementById("main-container");
+  const mainContainer = document.getElementById("main-container");
+  mainContainer.classList.add("main-container");
   let currentDate = new Date().toLocaleDateString();
 
   const cityBox = document.createElement("div");
@@ -43,8 +42,8 @@ function renderCurrent(data) {
     <span><i class="fa-solid fa-arrow-up"></i> ${data.main.temp_max} C </span>
     <span><i class="fa-solid fa-arrow-down"></i> ${data.main.temp_min} C</span>`;
 
-    const main =  document.getElementsByTagName(main)
-   main.append(mainContainer, cityBox, iconBox, detailsBox);
+  const mainWrapper = document.getElementById("main-container");
+  mainWrapper.append(cityBox, iconBox, detailsBox);
 }
 
 window.addEventListener("load", search());
