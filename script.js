@@ -1,27 +1,25 @@
 const apiKey = "2a58ec4bbfa26bfe6e0948b24c90bb76";
-const url = `https://api.openweathermap.org/data/2.5`;
+const url = (city) => `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
+const searchValue = document.getElementById("search")
 
-function search() {
-  document.getElementById("search").addEventListener("keyup", (e) => {
-    if (e.key == "Enter") {
-      fetchCurrent(document.getElementById("search").value);
-    }
-  });
-}
+searchValue.addEventListener("keyup", (e) => {
+  if (e.key == "Enter") {
+    fetchCurrent(searchValue.value);
+  }
+});
 
 async function fetchCurrent(city) {
-  const res = await fetch(
-    `${url}/weather?q=${city}&appid=${apiKey}&units=metric`
-  );
+  const res = await fetch(url(city))
   const data = await res.json();
   renderCurrent(data);
 }
 
 function renderCurrent(data) {
+  let currentDate = new Date().toLocaleDateString();
+
   const mainContainer = document.getElementById("main-container");
   mainContainer.classList.add("main-container");
-  let currentDate = new Date().toLocaleDateString();
 
   const cityBox = document.createElement("div");
   cityBox.setAttribute("id", "city");
@@ -44,12 +42,10 @@ function renderCurrent(data) {
     <span><i class="fa-solid fa-arrow-down"></i> ${data.main.temp_min} C</span>`;
 
   const mainWrapper = document.getElementById("main-container");
+  mainWrapper.innerHTML = ''
   mainWrapper.append(cityBox, iconBox, detailsBox);
 
-  document.getElementById("search").value = ''
+  searchValue.value = ''
 
 }
 
-window.addEventListener("load", () => {
-  search()
-});
